@@ -1,0 +1,44 @@
+-var vTitles = ["PlatziGames", "Main title", "Subtitle one"]
+-var vUserD = "Paris"
+mixin box(image, title, content)
+  .box 
+    .box__image
+      picture
+        source(media="(min-width: 1300px)" srcset="./images/" + image)
+        img(src="./images/"+image alt="Example image")
+    .box__content
+      h3=title 
+      p=content
+
+doctype html 
+html
+  head
+    meta(charset='UTF-8')
+    link(rel='stylesheet' href='css/styles.css')
+  body
+    header 
+      h1.
+        #{vTitles[0]}
+      if vUser
+        a Hi #{vUser}
+      else
+        a.button Register
+    section.intro
+      .intro__image
+        picture
+          source(media="(min-width: 1300px)" srcset="./images/image.png")
+          img(src="./images/image.png" alt="Example image")
+      .intro_content
+        h2 #{vTitles[1]}
+        p
+          | Lorem ipsum dolor sit amet consectetur adipisicing elit. Totam ducimus quia dignissimos non dolorem illum error vitae esse cumque a, unde sequi, voluptatem quas! 
+          | Autem tenetur cumque deserunt quis, asperiores perspiciatis? Vitae, possimus!
+          span Lorem ipsum dolor sit amet consectetur adipisicing elit. Maiores, distinctio?
+        a.button Read more 
+    ul
+      each vTitle in vTitles
+        li=vTitle
+  main.content
+    +box("image.png", vTitles[0], "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Aliquid quidem non architecto.")
+    +box("image.png", vTitles[1], "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Aliquid quidem non architecto.")
+    +box("image.png", vTitles[2], "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Aliquid quidem non architecto.")
