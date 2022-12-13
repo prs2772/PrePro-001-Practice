@@ -1,0 +1,13 @@
+-var vTitles = ["PlatziGames", "Main title", "Subtitle one"]
+-var vUserD = "Paris"
+-var vLinks=['About', 'News', 'Contact']
+
+mixin box(image, title, content)
+  .box 
+    .box__image
+      picture
+        source(media="(min-width: 1300px)" srcset="./images/" + image)
+        img(src="./images/"+image alt="Example image")
+    .box__content
+      h3=title 
+      p=content
