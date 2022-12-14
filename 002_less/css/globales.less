@@ -1,0 +1,57 @@
+@color-primario: #333333;
+@color-claro: #FFFFFF;
+@color-secundario: #8841da;
+@color-variacion: #012179;
+@Fuente1: 'Lato', sans-serif;
+@Fuente2: 'Oswald', sans-serif;
+@Fuente-base: 18px;
+@Dark-Mode: true;
+
+.DarkMode() when (@Dark-Mode = true){
+	background-color: @color-primario;
+	.intro{
+    background-color: @color-secundario;
+  }
+  .articulo--principal {
+    color: @color-claro;
+
+    h1, h2, h3 {
+      color: @color-secundario;
+    }
+  }
+  .caja__contenido {
+    background-color: @color-secundario;
+    color: @color-claro;
+    a{
+      color: @color-claro;
+    }
+  }
+}
+
+.sombra-caja {
+	box-shadow: 0px 5px 15px 0px fade(@color-primario, 50%);
+}
+.Oswald{
+	font-family: @Fuente2;
+	text-transform: uppercase;
+	font-weight: 700;
+}
+.fuentes(@font-size){
+	font-size: @font-size;
+	line-height: @font-size + 10%;
+}
+
+*{
+	box-sizing: border-box;
+}
+body {
+	margin: 0;
+	font-family: @Fuente1;
+	color: @color-primario;
+	.DarkMode();
+}
+h1,h2,h3 {
+	margin: 0;
+	.Oswald;
+}
+
